@@ -6,6 +6,7 @@ class StringCalculator
     raise NilInputError, 'Input cannot be nil' if string.nil?
     return 0 if string.empty?
 
-    string.to_i
+    numbers = string.split(',').map(&:to_i)
+    numbers.sum if numbers.length <= 2
   end
 end
