@@ -4,6 +4,6 @@ class StringCalculator
   def add(string)
     return 0 if string.empty?
 
-    4
+    string.to_i
   end
 end
