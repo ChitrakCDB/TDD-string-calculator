@@ -7,6 +7,6 @@ class StringCalculator
     return 0 if string.empty?
 
     numbers = string.split(',').map(&:to_i)
-    numbers.sum if numbers.length <= 2
+    numbers.sum
   end
 end
