@@ -5,6 +5,12 @@ describe StringCalculator do
   context '#add' do
     let(:string_calculator) { StringCalculator.new }
 
+    context 'raise error' do
+      it 'should raise nil input error if the input is nil' do
+        expect { string_calculator.add(nil) }.to raise_error(NilInputError, "Input cannot be nil")
+      end
+    end
+
     context 'empty string' do
       it 'should include 0 in output' do
         expect(string_calculator.add('')).to eq(0)
