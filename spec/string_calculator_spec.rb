@@ -40,5 +40,11 @@ describe StringCalculator do
         expect(string_calculator.add('40,60,100')).to eq(200)
       end
     end
+
+    context 'newlines to be treated as delimiters' do
+      it 'should suport newlines and return the sum of numbers' do
+        expect(string_calculator.add("2\n3,4")).to eq(9)
+      end
+    end
   end
 end
