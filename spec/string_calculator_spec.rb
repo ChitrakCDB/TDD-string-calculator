@@ -34,5 +34,11 @@ describe StringCalculator do
         expect(string_calculator.add('4,6')).to eq(10)
       end
     end
+
+    context 'input can have n numbers' do
+      it 'should return the sum of n numbers' do
+        expect(string_calculator.add('40,60,100')).to eq(200)
+      end
+    end
   end
 end
