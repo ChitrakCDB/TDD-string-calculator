@@ -16,5 +16,11 @@ describe StringCalculator do
         expect(string_calculator.add('4')).to eq(4)
       end
     end
+
+    context 'double digit' do
+      it 'should return the same digit as input' do
+        expect(string_calculator.add('44')).to eq(44)
+      end
+    end
   end
 end
