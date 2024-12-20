@@ -7,7 +7,7 @@ describe StringCalculator do
 
     context 'raise error' do
       it 'should raise nil input error if the input is nil' do
-        expect { string_calculator.add(nil) }.to raise_error(NilInputError, "Input cannot be nil")
+        expect { string_calculator.add(nil) }.to raise_error(NilInputError, 'Input cannot be nil')
       end
     end
 
@@ -26,6 +26,12 @@ describe StringCalculator do
     context 'double digit' do
       it 'should return the same digit as input' do
         expect(string_calculator.add('44')).to eq(44)
+      end
+    end
+
+    context 'input has two numbers' do
+      it 'should return the sum of the two numbers' do
+        expect(string_calculator.add('4,6')).to eq(10)
       end
     end
   end
