@@ -9,6 +9,11 @@ describe StringCalculator do
       it 'should raise nil input error if the input is nil' do
         expect { string_calculator.add(nil) }.to raise_error(NilInputError, 'Input cannot be nil')
       end
+
+      it 'raises an error if the input is not a string' do
+        expect { string_calculator.add(123) }.to raise_error(InvalidInputError, 'Input must be a string')
+        expect { string_calculator.add([]) }.to raise_error(InvalidInputError, 'Input must be a string')
+      end
     end
 
     context 'empty string' do
