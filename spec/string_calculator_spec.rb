@@ -51,5 +51,23 @@ describe StringCalculator do
         expect(string_calculator.add("2\n3,4")).to eq(9)
       end
     end
+
+    context 'can add custom delimiters' do
+      it 'should accept custom delimiters and return the sum of numbers' do
+        expect(string_calculator.add("//;\n1;2")).to eq(3)
+      end
+
+      it 'supports custom delimiters (pipe)' do
+        expect(string_calculator.add("//|\n1|2|3")).to eq(6)
+      end
+
+      it 'supports custom delimiters (dollar) witn newlines' do
+        expect(string_calculator.add("//$\n1$2\n3")).to eq(6)
+      end
+
+      it 'supports custom delimiters (@) witn newlines' do
+        expect(string_calculator.add("//@\n1@2\n3@11@12")).to eq(29)
+      end
+    end
   end
 end
