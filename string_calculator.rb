@@ -9,6 +9,8 @@ class StringCalculator
 
     delimiter, numbers = extract_delimiter(string)
     numbers = split_numbers(numbers, delimiter)
+
+    check_for_negative_numbers(numbers)
     sum_numbers(numbers)
   end
 
@@ -47,6 +49,14 @@ class StringCalculator
     # Replace newlines with the delimiter for consistent splitting
     numbers = numbers.gsub("\n", delimiter)
     numbers.split(delimiter).map(&:to_i)
+  end
+
+  # Check for negative numbers and raise an exception if any are found
+  def check_for_negative_numbers(numbers)
+    negatives = numbers.select(&:negative?)
+    return unless negatives.any?
+
+    raise NegativeNumberError, "negative numbers not allowed #{negatives.join(', ')}"
   end
 
   # Sums the numbers in the array

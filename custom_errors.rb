@@ -2,3 +2,4 @@
 
 class NilInputError < StandardError; end
 class InvalidInputError < StandardError; end
+class NegativeNumberError < StandardError; end
