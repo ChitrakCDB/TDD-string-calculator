@@ -69,5 +69,13 @@ describe StringCalculator do
         expect(string_calculator.add("//@\n1@2\n3@11@12")).to eq(29)
       end
     end
+
+    context 'cannot have negative numbers' do
+      it 'raises an error if the string contains multiple negative numbers' do
+        expect do
+          string_calculator.add('1,-2,-3')
+        end.to raise_error(NegativeNumberError, 'negative numbers not allowed -2, -3')
+      end
+    end
   end
 end
